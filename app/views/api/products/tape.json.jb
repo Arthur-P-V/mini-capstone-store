@@ -1,0 +1,6 @@
+{
+  name: @tape.name,
+  price: @tape.price,
+  imageurl: @tape.image_url,
+  description: @tape.description,
+}

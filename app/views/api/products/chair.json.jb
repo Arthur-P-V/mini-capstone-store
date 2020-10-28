@@ -1,0 +1,6 @@
+{
+  name: @chair.name,
+  price: @chair.price,
+  imageurl: @chair.image_url,
+  description: @chair.description,
+}
