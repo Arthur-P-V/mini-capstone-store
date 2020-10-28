@@ -1,0 +1,14 @@
+json = []
+index = 0
+while index < @products.length
+  product = @products[index]
+  productinfo = {
+    name: product.name,
+    price: product.price,
+    imageurl: product.image_url,
+    description: product.description,
+  }
+  json << productinfo
+  index = index + 1
+end
+return json
