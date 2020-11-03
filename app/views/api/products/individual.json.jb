@@ -1,0 +1,10 @@
+{
+  id: @output.id,
+  name: @output.name,
+  price: @output.price,
+  image_url: @output.image_url,
+  description: @output.description,
+  discount: @output.is_discounted?,
+  tax: @output.tax,
+  total: @output.total,
+}

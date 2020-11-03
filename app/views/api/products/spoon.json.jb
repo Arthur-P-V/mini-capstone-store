@@ -1,6 +1,0 @@
-{
-  name: @spoon.name,
-  price: @spoon.price,
-  imageurl: @spoon.image_url,
-  description: @spoon.description,
-}

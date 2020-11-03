@@ -3,9 +3,10 @@ index = 0
 while index < @products.length
   product = @products[index]
   productinfo = {
+    id: product.id,
     name: product.name,
     price: product.price,
-    imageurl: product.image_url,
+    image_url: product.image_url,
     description: product.description,
   }
   json << productinfo
