@@ -37,12 +37,12 @@ class Api::ProductsController < ApplicationController
     @product = Product.new({
       name: params["name"],
       price: params["price"],
-      image_url: params["image_url"],
       description: params["description"],
+      supplier_id: params["supplier_id"],
     })
-    @product.save
 
     if @product.save
+      @product.addimage(params["url"])
       render "show.json.jb"
     else
       render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
@@ -54,7 +54,6 @@ class Api::ProductsController < ApplicationController
     @product = Product.find(product_id)
     @product.name = params["name"] || @product.name
     @product.price = params["price"] || @product.price
-    @product.image_url = params["image_url"] || @product.image_url
     @product.description = params["description"] || @product.description
     @product.save
 
@@ -68,6 +67,8 @@ class Api::ProductsController < ApplicationController
   def destroy
     product_id = params["id"]
     @product = Product.find(product_id)
+    images = Image.where(product_id: product_id)
+    images.destroy
     @product.destroy
     render json: {
       message: "Product successfully destroyed",
